@@ -11,6 +11,8 @@ Installation:
 
 `pip install markdown-include` Lets you include markdown files in other markdown files to reduce copy-pasting
 
+`pip install mkdocs-jupyter` Lets you include Jupyter notebooks as pages
+
 Alternative theme
 `pip install mkdocs-material`
 
