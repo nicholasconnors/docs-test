@@ -27,4 +27,4 @@ jobs:
           git config --global user.name "Docs"
           git config --global user.email ""
       - name: Build Docs Website
-        run: mike deploy --push dev
+        run: mike deploy --push
