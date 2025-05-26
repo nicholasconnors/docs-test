@@ -1,9 +1,15 @@
 site_name: Test Docs
+repo_url: https://github.com/nicholasconnors/docs-test
 nav:
-  - index.md
-  - api.md
+  - Home: 'index.md'
+  - API: 'api.md'
+  - GitHub readme: 'readme.md'
+  - copyright.md
+
+copyright: Copyright info goes here
+
 theme:
-  name: readthedocs
+  name: material
 
 plugins:
 - mkdocstrings:
@@ -14,3 +20,8 @@ plugins:
           show_source: true
           docstring_style: numpy
           annotations_path: brief
+- search
+
+markdown_extensions:
+  - markdown_include.include:
+      base_path: ./
