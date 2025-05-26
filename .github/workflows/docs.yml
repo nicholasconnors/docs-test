@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - '*'
+    branches-ignore:
+      - gh-pages
   workflow_dispatch:
 permissions:
   contents: write
