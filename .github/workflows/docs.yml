@@ -34,9 +34,8 @@ jobs:
     needs: get-version
     runs-on: ubuntu-latest
     env:
-      SKIP: ${{ needs.get-version.outputs.skip }}
       VERSION: ${{ needs.get-version.outputs.version }}
-    if: ${{ env.SKIP }} == false
+    if: ${{ needs.get-version.outputs.skip }} == false
     steps:
       - uses: actions/checkout@v3
         with:
