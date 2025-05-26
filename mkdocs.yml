@@ -3,6 +3,9 @@ repo_url: https://github.com/nicholasconnors/docs-test
 nav:
   - Home: 'index.md'
   - API: 'api.md'
+  - User Guide:
+    - Getting started: 'user-guide/getting-started.md'
+    - Example notebook: 'user-guide/Notebook.ipynb'
   - GitHub readme: 'readme.md'
   - copyright.md
 
@@ -23,6 +26,7 @@ plugins:
           docstring_section_style: table
           show_signature_annotations: true
 - search
+- mkdocs-jupyter
 
 markdown_extensions:
   - markdown_include.include:
