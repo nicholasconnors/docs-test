@@ -13,6 +13,12 @@ copyright: Copyright info goes here
 
 theme:
   name: material
+  features:
+    - navigation.instant
+    - navigation.tabs  # Optional, but recommended
+    - header.autohide   # Optional UX enhancement
+  palette:
+    scheme: default
 
 plugins:
 - mkdocstrings:
@@ -31,3 +37,7 @@ plugins:
 markdown_extensions:
   - markdown_include.include:
       base_path: ./
+
+extra:
+  version:
+    provider: mike
