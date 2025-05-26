@@ -18,7 +18,7 @@ jobs:
       - name: Get branch name
         id: branch_name
         run: |
-          branch="${BRANCH_NAME}}"
+          branch="${BRANCH_NAME}"
           if [[ "$branch" == "main" || "$branch" == "master" ]]; then
             echo "version=latest" >> $GITHUB_OUTPUT
           elif [[ "$branch" == "dev" ]]; then
@@ -29,7 +29,6 @@ jobs:
             echo "Branch $branch doesn't need docs."
             echo "skip=true" >> $GITHUB_OUTPUT
           fi
-          echo "Generating docs for version $GITHUB_OUTPUT"
   deploy:
     needs: get-version
     if: ${{ !needs.set-version.outputs.skip }}
