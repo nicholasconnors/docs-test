@@ -13,10 +13,6 @@ copyright: Copyright info goes here
 
 theme:
   name: material
-  features:
-    - navigation.instant
-    - navigation.tabs  # Optional, but recommended
-    - header.autohide   # Optional UX enhancement
   palette:
     scheme: default
 
