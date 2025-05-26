@@ -1,0 +1,16 @@
+site_name: Test Docs
+nav:
+  - index.md
+  - api.md
+theme:
+  name: readthedocs
+
+plugins:
+- mkdocstrings:
+    handlers:
+      python:
+        paths: [src]
+        options:
+          show_source: true
+          docstring_style: numpy
+          annotations_path: brief
