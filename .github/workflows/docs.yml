@@ -34,7 +34,7 @@ jobs:
           fi
   deploy:
     needs: get-version
-    if: ${{ !needs.set-version.outputs.skip }}
+    if: ${{ needs.set-version.outputs.skip == false }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
