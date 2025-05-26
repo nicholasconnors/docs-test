@@ -19,6 +19,7 @@ jobs:
         id: branch_name
         run: |
           branch="${BRANCH_NAME}"
+          echo "skip=true" >> $GITHUB_OUTPUT
           if [[ "$branch" == "main" || "$branch" == "master" ]]; then
             echo "version=latest" >> $GITHUB_OUTPUT
           elif [[ "$branch" == "dev" ]]; then
