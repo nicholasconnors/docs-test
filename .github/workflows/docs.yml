@@ -2,12 +2,33 @@ name: Build/Publish Develop Docs
 on:
   push:
     branches:
-      - main
+      - '*'
   workflow_dispatch:
 permissions:
   contents: write
 jobs:
+  get-version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.get-version.outputs.version }}
+    steps:
+      - name: Get branch name
+        id: branch_name
+        run: |
+          branch="${GITHUB_REF#refs/heads/}"
+          if [[ "$branch" == "main" || "$branch" == "master" ]]; then
+            echo "version=latest" >> $GITHUB_OUTPUT
+          elif [[ "$branch" == "dev"]; then
+            echo "version=dev" >> $GITHUB_OUTPUT
+          elif [[ "$branch" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "version=$branch" >> $GITHUB_OUTPUT
+          else
+            echo "Branch $branch doesn't need docs."
+            exit 1
+          fi
   deploy:
+    needs: get-version
+    if: ${{ needs.set-version.result == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -27,4 +48,4 @@ jobs:
           git config --global user.name "Docs"
           git config --global user.email ""
       - name: Build Docs Website
-        run: mike deploy --push
+        run: mike deploy --push ${{ needs.get-version.ouputs.version }}
