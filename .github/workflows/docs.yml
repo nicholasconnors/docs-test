@@ -53,6 +53,7 @@ jobs:
           pip install pillow cairosvg mike
           pip install mkdocstrings-python
           pip install markdown-include
+          pip install mkdocs-jupyter
       - name: Setup Docs Deploy
         run: |
           git config --global user.name "Docs"
