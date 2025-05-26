@@ -1,6 +1,6 @@
 # docs-test
 
-Just testing making a documentation website using different packages and hosted on GitHub pages
+Testing making a documentation website using different packages and hosted on GitHub pages
 
 ### MkDocs
 Installation:
