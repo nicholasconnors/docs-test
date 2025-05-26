@@ -35,8 +35,12 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VERSION: ${{ needs.get-version.outputs.version }}
-    if: ${{ needs.get-version.outputs.skip }} == false
+    if: ${{ needs.get-version.outputs.skip }} != true
     steps:
+      - name: Log
+        run: |
+          echo "Should skip? [${{ needs.get-version.outputs.skip }}]"
+          echo "Branch is [${{ env.VERSION }}]"
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
