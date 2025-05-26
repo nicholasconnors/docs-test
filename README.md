@@ -13,6 +13,5 @@ Installation:
 
 `pip install mkdocs-jupyter` Lets you include Jupyter notebooks as pages
 
-Alternative theme
-`pip install mkdocs-material`
+`pip install mkdocs-material` Provides a nicer theme and a lot of additional options
 
