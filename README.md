@@ -1,4 +1,4 @@
-# docs-test
+# Testing open source docs for open source projects
 
 Testing making a documentation website using different packages and hosted on GitHub pages
 
