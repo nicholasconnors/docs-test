@@ -16,7 +16,7 @@ jobs:
       - name: Get branch name
         id: branch_name
         run: |
-          branch="${GITHUB_REF#refs/heads/}"
+          branch="${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
           if [[ "$branch" == "main" || "$branch" == "master" ]]; then
             echo "version=latest" >> $GITHUB_OUTPUT
           elif [[ "$branch" == "dev" ]]; then
