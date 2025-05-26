@@ -413,6 +413,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#how-to-set-up-bare-minimum-docs-on-your-own-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to set up bare minimum docs on your own repo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-publish-a-bare-minimum-github-pages-site" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to publish a bare minimum GitHub pages site
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -478,6 +496,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#how-to-set-up-bare-minimum-docs-on-your-own-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to set up bare minimum docs on your own repo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-publish-a-bare-minimum-github-pages-site" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to publish a bare minimum GitHub pages site
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -506,6 +542,31 @@
 <p><code>pip install markdown-include</code> Lets you include markdown files in other markdown files to reduce copy-pasting</p>
 <p><code>pip install mkdocs-jupyter</code> Lets you include Jupyter notebooks as pages</p>
 <p><code>pip install mkdocs-material</code> Provides a nicer theme and a lot of additional options</p>
+<h3 id="how-to-set-up-bare-minimum-docs-on-your-own-repo">How to set up bare minimum docs on your own repo</h3>
+<ol>
+<li>Install MkDocs</li>
+<li>Create a folder in your repo named docs</li>
+<li>Create index.md in that folder. Write anything inside it (this will be your home page)</li>
+<li>In the root directory of your repo create a file named mkdocs.yml with the contents:</li>
+</ol>
+<pre><code>site_name: [Whatever you want to name your website]
+nav:
+  - Home: 'index.md'
+</code></pre>
+<ol>
+<li>Run <code>mkdocs server</code> from the terminal in the root directory of your repo to have a version of your site hosted locally</li>
+</ol>
+<h3 id="how-to-publish-a-bare-minimum-github-pages-site">How to publish a bare minimum GitHub pages site</h3>
+<ol>
+<li>Make the folder <code>.github/workflows</code> in your repo and copy <code>docs.yml</code> from this repo into there.</li>
+<li>By pushing this file to your repo it will automatically run and generate the gh-pages branch. Check the <code>Actions</code> tab to ensure it worked.</li>
+<li>Enable GitHub pages in <code>Settings&gt;Pages</code>. Make sure the source is set to <code>Deploy from a branch</code> and that the selected branch is <code>gh-pages</code> with the root directory.</li>
+<li>Your site will go live at [your github username].github.io/[your repo name]</li>
+</ol>
+<p>Notes about the GitHub action:
+- You might have to enable actions and/or workflow permissions I'm not sure what the default settings are
+- The workflow expects that you will be doing dev work on a branch called <code>dev</code>, that the latest released version of your code is costed on a branch called <code>main</code> or <code>master</code>, and that all previous releases have their legacy code kept in a branch labeled with their version number <code>X.Y.Z</code> (semantic versioning)
+- What I would do is, when your development branch is ready to be released (merged into main) create a new branch based on main with its version number as the name and then publish that branch and never touch it again. Then merge <code>dev</code> into <code>main</code>.</p>
 
 
 
