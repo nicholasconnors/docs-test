@@ -9,6 +9,8 @@ permissions:
 jobs:
   get-version:
     runs-on: ubuntu-latest
+    env:
+     BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
     outputs:
       version: ${{ steps.get-version.outputs.version }}
       skip: ${{ steps.get-version.outputs.skip }}
@@ -16,7 +18,7 @@ jobs:
       - name: Get branch name
         id: branch_name
         run: |
-          branch="${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
+          branch="${BRANCH_NAME}}"
           if [[ "$branch" == "main" || "$branch" == "master" ]]; then
             echo "version=latest" >> $GITHUB_OUTPUT
           elif [[ "$branch" == "dev" ]]; then
