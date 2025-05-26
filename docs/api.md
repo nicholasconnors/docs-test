@@ -2,14 +2,12 @@
 
 This page has automatically created descriptions of methods in the code
 
-## TestClass
+## testclass.py
 Here are the methods of the class TestClass inside the file testclass.py
 
 ::: testclass.TestClass
-    options:
-        show_source: true
 
-## Test
+## test.py
 Here is a single function inside the file test.py:
 
 ::: test

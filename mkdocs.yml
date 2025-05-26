@@ -18,8 +18,10 @@ plugins:
         paths: [src]
         options:
           show_source: true
-          docstring_style: numpy
-          annotations_path: brief
+          docstring_style: sphinx
+          annotations_path: full
+          docstring_section_style: table
+          show_signature_annotations: true
 - search
 
 markdown_extensions:
