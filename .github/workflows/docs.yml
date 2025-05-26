@@ -18,7 +18,7 @@ jobs:
           branch="${GITHUB_REF#refs/heads/}"
           if [[ "$branch" == "main" || "$branch" == "master" ]]; then
             echo "version=latest" >> $GITHUB_OUTPUT
-          elif [[ "$branch" == "dev"]; then
+          elif [[ "$branch" == "dev"]]; then
             echo "version=dev" >> $GITHUB_OUTPUT
           elif [[ "$branch" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             echo "version=$branch" >> $GITHUB_OUTPUT
