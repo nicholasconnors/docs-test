@@ -6,7 +6,7 @@ nav:
   - User Guide:
     - Getting started: 'user-guide/getting-started.md'
     - Example notebook: 'user-guide/Notebook.ipynb'
-  - GitHub readme: 'readme.md'
+  - GitHub Readme: 'readme.md'
   - copyright.md
 
 copyright: Copyright info goes here
