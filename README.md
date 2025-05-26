@@ -39,3 +39,11 @@ Notes about the GitHub action:
 - You might have to enable actions and/or workflow permissions I'm not sure what the default settings are
 - The workflow expects that you will be doing dev work on a branch called `dev`, that the latest released version of your code is costed on a branch called `main` or `master`, and that all previous releases have their legacy code kept in a branch labeled with their version number `X.Y.Z` (semantic versioning)
 - What I would do is, when your development branch is ready to be released (merged into main) create a new branch based on main with its version number as the name and then publish that branch and never touch it again. Then merge `dev` into `main`.
+
+### Docs
+
+For other features read the official docs for MkDocs and the other plugins 
+
+https://www.mkdocs.org/
+
+https://squidfunk.github.io/mkdocs-material/
