@@ -16,7 +16,7 @@ jobs:
       skip: ${{ steps.get-version.outputs.skip }}
     steps:
       - name: Get branch name
-        id: branch_name
+        id: get-version
         run: |
           branch="${BRANCH_NAME}"
           echo "skip=true" >> $GITHUB_OUTPUT
