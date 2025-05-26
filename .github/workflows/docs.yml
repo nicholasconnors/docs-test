@@ -32,8 +32,11 @@ jobs:
           fi
   deploy:
     needs: get-version
-    if: ${{ needs.set-version.outputs.skip == false }}
     runs-on: ubuntu-latest
+    env:
+      SKIP: ${{ needs.get-version.outputs.skip }}
+      VERSION: ${{ needs.get-version.outputs.version }}
+    if: ${{ env.SKIP }} == false
     steps:
       - uses: actions/checkout@v3
         with:
@@ -53,5 +56,5 @@ jobs:
           git config --global user.email ""
       - name: Build Docs Website
         run: |
-          echo "Deploying site for ${{ needs.get-version.outputs.version }}"
-          mike deploy --push ${{ needs.get-version.ouputs.version }}
+          echo "Deploying site for ${{ env.VERSION }}"
+          mike deploy --push ${{ env.VERSION }}
